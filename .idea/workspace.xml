@@ -7,7 +7,6 @@
     <list default="true" id="930770ac-7356-403a-b61e-28d756c6ddbe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/_index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/_index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/resources.getuser.$userid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/resources.getuser.$userid.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702092878738</updated>
       <workItem from="1702092879782" duration="3282000" />
-      <workItem from="1702146810953" duration="2662000" />
+      <workItem from="1702146810953" duration="2796000" />
     </task>
     <servers />
   </component>
