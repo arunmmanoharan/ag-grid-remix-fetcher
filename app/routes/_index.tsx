@@ -33,7 +33,6 @@ export default function Index() {
   const userFetcher = useFetcher<any>();
   const {users} = useLoaderData<typeof loader>() || {};
   const onUserClick = (id: number) => {
-    console.log('id', id)
     userFetcher.load(`/resources/getuser/${id}`)
   }
   const [columnDefs] = useState<ColDef[]>([
@@ -43,28 +42,25 @@ export default function Index() {
     { field: 'website' },
   ]);
 
-  console.log('userFetcher', userFetcher)
-
-
   return (
       <div style={{fontFamily: "system-ui, sans-serif", lineHeight: "1.8"}}>
         <h1>Welcome to Remix</h1>
         <div style={containerStyle}>
-          <div
-              style={gridStyle}
-              className={
-                "ag-theme-quartz"
-              }
-          >
-              <p>
-                Clicked User: {userFetcher.data?.name}
-              </p>
-            <AgGridReact
-                rowData={users}
-                columnDefs={columnDefs}
-                domLayout='autoHeight'
-            />
-          </div>
+            <div
+                style={gridStyle}
+                className={
+                    "ag-theme-quartz"
+                }
+            >
+                <AgGridReact
+                    rowData={users}
+                    columnDefs={columnDefs}
+                    domLayout='autoHeight'
+                />
+                <p>
+                    Clicked User: {userFetcher.state === 'idle' && userFetcher.data?.name}
+                </p>
+            </div>
         </div>
       </div>
   );
