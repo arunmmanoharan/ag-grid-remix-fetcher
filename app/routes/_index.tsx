@@ -30,11 +30,11 @@ export default function Index() {
   const containerStyle = useMemo(() => ({ width: '100%', height: '100%' }), []);
   const gridStyle = useMemo(() => ({ height: '100%', width: '100%' }), []);
 
-  const userFetcher = useFetcher();
+  const userFetcher = useFetcher<any>();
   const {users} = useLoaderData<typeof loader>() || {};
   const onUserClick = (id: number) => {
     console.log('id', id)
-    userFetcher.load(`/resources/getuser/${id}`)
+    userFetcher.load(`/resources/getuser/${id}`, {unstable_flushSync: true})
   }
   const [columnDefs] = useState<ColDef[]>([
     { headerName: 'Name', field: 'name', cellRenderer: (params: ICellRendererParams) => <NameRenderer {...params} onUserClick={onUserClick} /> },
@@ -44,6 +44,7 @@ export default function Index() {
   ]);
 
   console.log('userFetcher', userFetcher)
+
 
   return (
       <div style={{fontFamily: "system-ui, sans-serif", lineHeight: "1.8"}}>
@@ -73,6 +74,7 @@ export default function Index() {
             </a>
           </li>
         </ul>
+
         <div style={containerStyle}>
           <div
               style={gridStyle}
@@ -80,6 +82,9 @@ export default function Index() {
                 "ag-theme-quartz"
               }
           >
+              <p>
+                Clicked User: {userFetcher.data?.name}
+              </p>
             <AgGridReact
                 rowData={users}
                 columnDefs={columnDefs}
